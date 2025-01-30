@@ -1,6 +1,0 @@
-source "D:/ProgramFiles/espidf/components/bootloader/Kconfig.projbuild"
-source "D:/ProgramFiles/espidf/components/esp_app_format/Kconfig.projbuild"
-source "D:/ProgramFiles/espidf/components/esp_rom/Kconfig.projbuild"
-source "D:/ProgramFiles/espidf/components/esptool_py/Kconfig.projbuild"
-source "D:/ProgramFiles/espidf/components/partition_table/Kconfig.projbuild"
-source "C:/Users/jakob/OneDrive/Dokumente/_Github/AudioHub/blink/main/Kconfig.projbuild"
