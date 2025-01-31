@@ -155,20 +155,32 @@ void loop() {
   // dc-clearing
   frequency_vals[0] = 0;
 
-  float sum = 0;
+  if (true) {
+    float sum = 0;
+    for (int i = 0; i < 40; i++) {
 
-  for (int i = 0; i < 40; i++) {
+      for (int j = 0; j < (1020 / 40); j++) {
+        sum += frequency_vals[i * (1020 / 40) + j];
+      }
 
-    for (int j = 0; j < (1020 / 40); j++) {
-      sum += frequency_vals[i * (1020 / 40) + j];
+      sum /= 40;
+      sum = (sum / 30) * 18.0;
+      spectrum_vis[i] = sum;
     }
+  } else {
+    for (int i = 0; i < 40; i++) {
+      float buf = 0;
 
-    sum /= 40;
-    sum = (sum / 30) * 18.0;
+      for (int j = 0; j < (1020 / 40); j++) {
+        if (frequency_vals[i * (1020 / 40) + j] > buf)
+          buf = frequency_vals[i * (1020 / 40) + j];
+      }
 
-
-    spectrum_vis[i] = sum;
+      buf = (buf / 50) * 18.0;
+      spectrum_vis[i] = buf;
+    }
   }
+
 
   display_spectrum();
 }
